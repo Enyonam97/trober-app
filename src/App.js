@@ -18,7 +18,7 @@ function App() {
           <p id="desc">
             Trober gives you a scheduled ride to take you and from work everyday
           </p>
-          <a href="#" className="btn btn-lg bg-white h3 text-dark">
+          <a href="#waitlist" className="btn btn-lg bg-white h3 text-dark">
             Join Waitlist
           </a>
         </div>
@@ -26,7 +26,7 @@ function App() {
           <img id="car" src={car} alt="trober vehiclels" />
         </div>
         <div id="divider"></div>
-        <div className="container waitlist text-dark">
+        <div className="container waitlist text-dark" id="waitlist">
           <form>
             <p className="text-center form-title">
               Fill out Details to be added to the waitlist of the smart Trotro
