@@ -13,7 +13,13 @@ function App() {
   const [destination, setDestination] = useState("");
 
   return (
-    <div className="container-fluid bg-dark">
+    <div
+      className="container-fluid bg-dark"
+      style={{
+        paddingRight: 0,
+        paddingLeft: 0,
+      }}
+    >
       <center>
         <img className="logo img-fluid" src={logo} alt="trober logo" />
       </center>
@@ -29,7 +35,15 @@ function App() {
             <br />
             work everyday
           </p>
-          <a href="#waitlist" className="btn btn-lg bg-white h3 text-dark">
+          <a
+            href="#waitlist"
+            className="btn btn-lg h3 text-dark"
+            style={{
+              color: "black",
+              fontWeight: "bold",
+              backgroundColor: "#B7C945",
+            }}
+          >
             Join Waitlist
           </a>
         </div>
@@ -80,10 +94,10 @@ function App() {
               <br />
               <br />
 
-              <input
+              <button
                 type="submit"
                 classname="btn bg-dark h3 submit text-white"
-                value="Join Waitlist"
+                id="waitlistButton"
                 onClick={async (e) => {
                   e.preventDefault();
                   const response = await axios.post(
@@ -97,9 +111,50 @@ function App() {
                   );
                   console.log(response);
                 }}
-              />
+              >
+                <p id="joinWaitlist">Join Waitlist</p>
+              </button>
             </div>
           </form>
+        </div>
+      </div>
+      <div
+        style={{
+          height: "100px",
+          backgroundColor: "#FFF",
+        }}
+      />
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          height: "150px",
+          width: "100%",
+          backgroundColor: "#01DDA7",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <p id="footer">
+            Aluguntugui Street
+            <br />
+            East Legon
+            <br />
+            Accra
+          </p>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <p id="footerRight">Trober@2022</p>
         </div>
       </div>
     </div>

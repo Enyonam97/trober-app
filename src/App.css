@@ -2,7 +2,8 @@
 
 body{
   font-family: 'Poppins', sans-serif;
-  font-weight: 500;  
+  font-weight: 500; 
+  overflow-x: hidden; 
 }
 .row{
   margin: 0px;
@@ -70,11 +71,17 @@ margin-bottom: 10vmin;
 .waitlist{
   margin-top: -80px;
 }
+
+#joinWaitlist {
+  color:'black';
+  font-weight: bold;
+}
+
 #divider{
   color: black;
   /* margin-top: -50px; */
   width: 100%;
-  background-color: yellowgreen;
+  background-color: #B7C945;
   height: 20px;
 }
 .form-title{
@@ -86,6 +93,28 @@ margin-bottom: 10vmin;
   width: 100%;
 }
 
+#waitlistButton {
+  background-color: #B7C945;
+  width: 20%;
+  height:50px;
+  border-radius: 5px;
+  font-size: 20px;
+  padding:10px
+}
+
+#footer {
+  margin-left: 30px;
+  margin-top: 50px;
+  color:black;
+  font-size: 18px;
+}
+
+#footerRight {
+  margin-right: 30px;
+  margin-top: 130px;
+  color:black;
+  /* font-size: 18px; */
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -127,3 +156,25 @@ margin-bottom: 10vmin;
   }
 }
 
+@media only screen and (max-width: 720px) {
+  #joinWaitlist{
+    font-size: 14px;
+    color: 'white';
+    padding: 0px;
+  }
+
+  #waitlistButton {
+    width: 30%;
+  }
+
+  #footer {
+    font-size: 12px;
+  }
+
+  #footerRight {
+    font-size: 12px;
+  }
+  .form-title {
+    font-size: 12px;
+  }
+}
