@@ -13,17 +13,21 @@ function App() {
   const [destination, setDestination] = useState("");
 
   return (
-    <div className="container-fluid bg-dark header">
+    <div className="container-fluid bg-dark">
       <center>
-        <img className="logo d-none d-lg-block" src={logo} alt="trober logo" />
+        <img className="logo img-fluid" src={logo} alt="trober logo" />
       </center>
       <div className="row">
-        <div className="left col-lg-5 justify-content">
-          The new way to get
-          <br /> to work.
+        <div className="left text-center col-lg-5 justify-content">
+          The new way
+          <br />
+          to get to work.
           <br />
           <p id="desc">
-            Trober gives you a scheduled ride to take you and from work everyday
+            Trober gives you a scheduled ride <br />
+            to take you and from
+            <br />
+            work everyday
           </p>
           <a href="#waitlist" className="btn btn-lg bg-white h3 text-dark">
             Join Waitlist
@@ -33,7 +37,7 @@ function App() {
           <img id="car" src={car} alt="trober vehiclels" />
         </div>
         <div id="divider"></div>
-        <div className="container waitlist text-dark" id="waitlist">
+        <div className="container waitlist text-dark bg-white" id="waitlist">
           <form>
             <p className="text-center form-title">
               Fill out Details to be added to the waitlist of the smart Trotro
@@ -56,28 +60,23 @@ function App() {
                 }}
               />
               <br />
-              <select
+              <input
+                className="mb-3"
+                placeholder="Pickup Location"
                 onChange={({ target }) => {
                   setPickup(target.value);
                 }}
-              >
-                <option>Please select pick up bus stop</option>
-                <option>Bus stop 1</option>
-                <option>Bus stop 2 </option>
-                <option>Bus stop 3</option>
-              </select>
+              />
+
               <br />
-              <br />
-              <select
+              <input
+                className="mb-3"
+                placeholder="Destination"
                 onChange={({ target }) => {
                   setDestination(target.value);
                 }}
-              >
-                <option>Please select destination bus stop</option>
-                <option>Bus stop 1</option>
-                <option>Bus stop 2 </option>
-                <option>Bus stop 3</option>
-              </select>
+              />
+
               <br />
               <br />
 
@@ -88,7 +87,7 @@ function App() {
                 onClick={async (e) => {
                   e.preventDefault();
                   const response = await axios.post(
-                    "http://localhost:3000/saveUserRoute",
+                    "https://trober-backend.herokuapp.com/saveUserRoute",
                     {
                       name,
                       phoneNumber: phone,
