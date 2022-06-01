@@ -6,11 +6,11 @@ import car from "./car.png";
 
 function App() {
   return (
-    <div className="container-fluid bg-dark header" style={{ width: 300 }}>
+    <div className="container-fluid bg-dark header">
       <center>
-        <img className="logo img-fluid" src={logo} alt="trober logo" />
+        <img className="logo d-none d-lg-block" src={logo} alt="trober logo" />
       </center>
-      <div className="row" style={{ backgroundColor: "red" }}>
+      <div className="row">
         <div className="left col-lg-5 justify-content">
           The new way to get
           <br /> to work.
