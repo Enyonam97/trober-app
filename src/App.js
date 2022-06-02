@@ -65,7 +65,25 @@ function App() {
         </div>
         <div id="divider"></div>
         <div className="container waitlist text-dark bg-white" id="waitlist">
-          <form>
+          <form
+            onSubmit={async (e) => {
+              e.preventDefault();
+              const response = await axios.post(
+                "https://trober-backend.herokuapp.com/saveUserRoute",
+                {
+                  name,
+                  phoneNumber: phone,
+                  pickupLocation: pickup,
+                  dropoffLocation: destination,
+                }
+              );
+              setDestination("");
+              setName("");
+              setPickup("");
+              setPhone("");
+              setMessage("Your response has been recorded. Thank you!");
+            }}
+          >
             <p className="text-center form-title">
               Register your interest for a smart commute!
             </p>
@@ -79,6 +97,8 @@ function App() {
                 Name
               </label>
               <input
+                type={"text"}
+                required
                 className="mb-3"
                 placeholder="Ama Kpobie"
                 value={name}
@@ -96,6 +116,8 @@ function App() {
                 Phone Number
               </label>
               <input
+                type={"number"}
+                required
                 className="mb-3"
                 placeholder="054XXXXXXX"
                 value={phone}
@@ -113,7 +135,9 @@ function App() {
                 Pickup Location
               </label>
               <input
-                className="mb-3"
+                type={"text"}
+                required
+                className="mb-3 required"
                 placeholder="Spintex, Manet Junction"
                 value={pickup}
                 onChange={({ target }) => {
@@ -131,6 +155,8 @@ function App() {
                 Destination
               </label>
               <input
+                type={"text"}
+                required
                 className="mb-3"
                 placeholder="Madina, Ritz Junction"
                 value={destination}
@@ -144,26 +170,8 @@ function App() {
 
               <button
                 type="submit"
-                classname="btn bg-dark h3 submit text-white"
+                className="btn bg-dark h3 submit text-white"
                 id="waitlistButton"
-                onClick={async (e) => {
-                  e.preventDefault();
-                  const response = await axios.post(
-                    "https://trober-backend.herokuapp.com/saveUserRoute",
-                    {
-                      name,
-                      phoneNumber: phone,
-                      pickupLocation: pickup,
-                      dropoffLocation: destination,
-                    }
-                  );
-                  setDestination("");
-                  setName("");
-                  setPickup("");
-                  setPhone("");
-                  setMessage("Your response has been recorded. Thank you!");
-                  console.log(response);
-                }}
               >
                 <p id="joinWaitlist">Join Waitlist</p>
               </button>
