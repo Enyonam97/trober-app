@@ -63,27 +63,51 @@ function App() {
               Register your interest for a smart commute!
             </p>
             <div className="text-center">
+              <label
+                style={{
+                  display: "flex",
+                  marginLeft: "20%",
+                }}
+              >
+                Name
+              </label>
               <input
                 className="mb-3"
-                placeholder="Name"
+                placeholder="Ama Kpobie"
                 value={name}
                 onChange={({ target }) => {
                   setName(target.value);
                 }}
               />
               <br />
+              <label
+                style={{
+                  display: "flex",
+                  marginLeft: "20%",
+                }}
+              >
+                Phone Number
+              </label>
               <input
                 className="mb-3"
-                placeholder="Phone Number"
+                placeholder="054XXXXXXX"
                 value={phone}
                 onChange={({ target }) => {
                   setPhone(target.value);
                 }}
               />
               <br />
+              <label
+                style={{
+                  display: "flex",
+                  marginLeft: "20%",
+                }}
+              >
+                Pickup Location
+              </label>
               <input
                 className="mb-3"
-                placeholder="Pickup Location"
+                placeholder="Spintex, Manet Junction"
                 value={pickup}
                 onChange={({ target }) => {
                   setPickup(target.value);
@@ -91,9 +115,17 @@ function App() {
               />
 
               <br />
+              <label
+                style={{
+                  display: "flex",
+                  marginLeft: "20%",
+                }}
+              >
+                Destination
+              </label>
               <input
                 className="mb-3"
-                placeholder="Destination"
+                placeholder="Madina, Ritz Junction"
                 value={destination}
                 onChange={({ target }) => {
                   setDestination(target.value);
