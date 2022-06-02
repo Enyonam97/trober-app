@@ -223,7 +223,13 @@ function App() {
             flexDirection: "column",
           }}
         >
-          <p id="footerRight">Trober@2022</p>
+          <p id="footerRight">
+            Contact Us
+            <br />
+            +233 54 635 3625 <br /> +233 55 373 8944 <br /> +233 54 546 8387
+            <br />
+            Trober@2022
+          </p>
         </div>
       </div>
     </div>
