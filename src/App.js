@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import logo from "./logo.png";
 import "./App.css";
 import "react-bootstrap";
@@ -11,6 +11,13 @@ function App() {
   const [phone, setPhone] = useState("");
   const [pickup, setPickup] = useState("");
   const [destination, setDestination] = useState("");
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    setTimeout(() => {
+      setMessage("");
+    }, 5000);
+  }, [message]);
 
   return (
     <div
@@ -25,26 +32,25 @@ function App() {
       </center>
       <div className="row">
         <div className="left text-center col-lg-5 justify-content">
-          The new way
+          Redefine your
           <br />
-          to get to work.
+          journey
           <br />
           <p id="desc">
-            Trober gives you a scheduled ride <br />
-            to take you and from
-            <br />
-            work everyday
+            Trober gives you a scheduled <br />
+            ride to and from work
           </p>
           <a
             href="#waitlist"
             className="btn btn-lg h3 text-dark"
+            id="waitlistbutton"
             style={{
               color: "black",
               fontWeight: "bold",
               backgroundColor: "#B7C945",
             }}
           >
-            Join Waitlist
+            <p id="joinWaitlistTop">Join Waitlist</p>
           </a>
         </div>
         <div className="col-lg-7">
@@ -54,13 +60,13 @@ function App() {
         <div className="container waitlist text-dark bg-white" id="waitlist">
           <form>
             <p className="text-center form-title">
-              Fill out Details to be added to the waitlist of the smart Trotro
-              for working professionals.
+              Register your interest for a smart commute!
             </p>
             <div className="text-center">
               <input
                 className="mb-3"
                 placeholder="Name"
+                value={name}
                 onChange={({ target }) => {
                   setName(target.value);
                 }}
@@ -69,6 +75,7 @@ function App() {
               <input
                 className="mb-3"
                 placeholder="Phone Number"
+                value={phone}
                 onChange={({ target }) => {
                   setPhone(target.value);
                 }}
@@ -77,6 +84,7 @@ function App() {
               <input
                 className="mb-3"
                 placeholder="Pickup Location"
+                value={pickup}
                 onChange={({ target }) => {
                   setPickup(target.value);
                 }}
@@ -86,6 +94,7 @@ function App() {
               <input
                 className="mb-3"
                 placeholder="Destination"
+                value={destination}
                 onChange={({ target }) => {
                   setDestination(target.value);
                 }}
@@ -109,11 +118,25 @@ function App() {
                       dropoffLocation: destination,
                     }
                   );
+                  setDestination("");
+                  setName("");
+                  setPickup("");
+                  setPhone("");
+                  setMessage("Your response has been recorded. Thank you!");
                   console.log(response);
                 }}
               >
                 <p id="joinWaitlist">Join Waitlist</p>
               </button>
+              {message && (
+                <p
+                  style={{
+                    marginTop: "50px",
+                  }}
+                >
+                  {message}
+                </p>
+              )}
             </div>
           </form>
         </div>

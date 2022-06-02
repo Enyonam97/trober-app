@@ -55,18 +55,26 @@ margin-bottom: 10vmin;
   line-height: 80%;
   margin: 0px;    
   padding-top:40px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bolder;
   /* margin-right: -80px; */
   /* display: flex;÷ */
   
-  /* letter-spacing: 40px; */
+  letter-spacing: 2px;
+}
+#waitlistbutton {
+  letter-spacing: 0px;
+  font-family: 'Poppins', sans-serif;
 }
 
 #desc{
   padding-right: 30px;
-  margin-top: 50px;
+  margin-top: 20px;
+  font-weight: 500;
   font-size: 32px;
   line-height: 90%;
-
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0px;
 }
 .waitlist{
   margin-top: -80px;
@@ -87,7 +95,10 @@ margin-bottom: 10vmin;
 .form-title{
   font-size: 30px;
   padding: 5% 20% 5% 20%;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
 }
+
 #car{
   position:relative;
   width: 100%;
@@ -150,10 +161,11 @@ margin-bottom: 10vmin;
 
 @media only screen and (max-width: 600px) {
   .left {
-    font-size: 36px;
+    font-size: 42px;
   }
   #desc {
     font-size: 16px;
+    
   }
 }
 
@@ -161,7 +173,12 @@ margin-bottom: 10vmin;
   #joinWaitlist{
     font-size: 14px;
     color: 'white';
-    padding: 0px;
+    padding: 2.5px;
+  }
+  #joinWaitlistTop{
+    font-size: 14px;
+    color: 'white';
+    margin-bottom:0px;
   }
 
   #waitlistButton {
@@ -176,6 +193,6 @@ margin-bottom: 10vmin;
     font-size: 12px;
   }
   .form-title {
-    font-size: 12px;
+    font-size: 16px;
   }
 }
