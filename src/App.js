@@ -167,10 +167,9 @@ function App() {
 
               <br />
               <br />
-
               <button
                 type="submit"
-                className="btn bg-dark h3 submit text-white"
+                classname="btn bg-dark h3 submit text-white"
                 id="waitlistButton"
               >
                 <p id="joinWaitlist">Join Waitlist</p>
