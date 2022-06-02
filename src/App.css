@@ -172,12 +172,10 @@ margin-bottom: 10vmin;
 @media only screen and (max-width: 720px) {
   #joinWaitlist{
     font-size: 14px;
-    color: 'white';
     padding: 2.5px;
   }
   #joinWaitlistTop{
     font-size: 14px;
-    color: 'white';
     margin:0px;
   }
 
