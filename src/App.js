@@ -50,7 +50,14 @@ function App() {
               backgroundColor: "#B7C945",
             }}
           >
-            <p id="joinWaitlistTop">Join Waitlist</p>
+            <p
+              style={{
+                margin: 0,
+              }}
+              id="joinWaitlistTop"
+            >
+              Join Waitlist
+            </p>
           </a>
         </div>
         <div className="col-lg-7">
