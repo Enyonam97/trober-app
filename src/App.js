@@ -12,6 +12,7 @@ function App() {
   const [pickup, setPickup] = useState("");
   const [destination, setDestination] = useState("");
   const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -68,20 +69,26 @@ function App() {
           <form
             onSubmit={async (e) => {
               e.preventDefault();
-              const response = await axios.post(
-                "https://trober-backend.herokuapp.com/saveUserRoute",
-                {
-                  name,
-                  phoneNumber: phone,
-                  pickupLocation: pickup,
-                  dropoffLocation: destination,
-                }
-              );
-              setDestination("");
-              setName("");
-              setPickup("");
-              setPhone("");
-              setMessage("Your response has been recorded. Thank you!");
+              setLoading(true);
+              try {
+                await axios.post(
+                  "https://trober-backend.herokuapp.com/saveUserRoute",
+                  {
+                    name,
+                    phoneNumber: phone,
+                    pickupLocation: pickup,
+                    dropoffLocation: destination,
+                  }
+                );
+                setDestination("");
+                setName("");
+                setPickup("");
+                setPhone("");
+                setMessage("Hurray! We will be in touch with you soon!");
+              } catch (e) {
+                setMessage(e.response.data);
+              }
+              setLoading(false);
             }}
           >
             <p className="text-center form-title">
@@ -171,13 +178,32 @@ function App() {
                 type="submit"
                 classname="btn bg-dark h3 submit text-white"
                 id="waitlistButton"
+                disabled={loading}
               >
                 <p id="joinWaitlist">Join Waitlist</p>
               </button>
+              {loading && (
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignContent: "center",
+                  }}
+                >
+                  <img
+                    style={{
+                      marginTop: "-30px",
+                      width: "200px",
+                    }}
+                    src={require("./images/giphy.gif")}
+                    alt="loader"
+                  />
+                </div>
+              )}
               {message && (
                 <p
                   style={{
-                    marginTop: "50px",
+                    marginTop: "20px",
                   }}
                 >
                   {message}
@@ -220,15 +246,52 @@ function App() {
         <div
           style={{
             display: "flex",
+            justifyContent: "center",
+            alignItems: "flex-end",
+            color: "black",
+          }}
+        >
+          Trober@2022
+        </div>
+        <div
+          style={{
+            display: "flex",
             flexDirection: "column",
           }}
         >
           <p id="footerRight">
             Contact Us
             <br />
-            +233 54 635 3625 <br /> +233 55 373 8944 <br /> +233 54 546 8387
+            <a
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+              href="tel"
+            >
+              +233 54 635 3625
+            </a>
             <br />
-            Trober@2022
+            <a
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+              href="tel"
+            >
+              +233 55 373 8944
+            </a>
+            <br />
+            <a
+              style={{
+                textDecoration: "none",
+                color: "black",
+              }}
+              href="tel"
+            >
+              +233 54 546 8387
+            </a>
+            <br />
           </p>
         </div>
       </div>
